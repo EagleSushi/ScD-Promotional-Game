@@ -6,7 +6,7 @@ Science Blast is a 2d bullet hell game where you have a choice of 4 characters t
 
 ### Characters: 
 
-	| Syntax | Description |
+| Syntax      | Description |
 | ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text |
+| Header      | Title       |
+| Paragraph   | Text        |
