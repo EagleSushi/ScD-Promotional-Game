@@ -8,12 +8,18 @@ class Enemy {
   int tarY;
   int tarX; 
   int health;
-
+  
+  int maxCostume = 0;
+  int costume;
+  
   Enemy() {
-    health = 250;
+    waveLvl();
+    costume = int(random(0,maxCostume+1));
+    determineHealth();
+    
     int randX = int(constrain(random(0, width), 48, width-48));
-
-    sprite = loadImage("data/visuals/enemies/enemy_0.png");
+  
+    sprite = loadImage("data/visuals/enemies/enemy_"+costume+".png");
     pos = new PVector(randX, 0);
 
     tarX = int(constrain(random(pos.x-10, pos.x+10), 48, width-48));
@@ -21,11 +27,18 @@ class Enemy {
   }
 
   boolean dead() {
-    return health<=0;
+    
+    if(costume != 0 && health <=0) {
+      costume-=1;
+      determineHealth();
+      sprite = loadImage("data/visuals/enemies/enemy_"+costume+".png");
+    }
+    
+    return health<=0 && costume == 0;
   }
 
   void display() {
-
+    
     if (!dead()) {
       randomMove();
       pushMatrix();
@@ -39,6 +52,30 @@ class Enemy {
     } else {
       enemies.remove(enemyCount);
       
+    }
+  }
+  
+  void waveLvl() {
+    switch(gameScreen.wave) {
+    case 1: 
+      maxCostume = 0;
+    break; 
+    case 2: 
+      maxCostume = 1;
+      break; 
+    case 20: 
+      break;
+    }
+  }
+  
+  void determineHealth() {
+    switch(costume) {
+      case 0:
+        health = 100; 
+      break; 
+      case 1: 
+        health = 250;
+      break; 
     }
   }
 

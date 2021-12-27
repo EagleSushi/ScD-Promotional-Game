@@ -254,34 +254,38 @@ class Selection {
 
 // game screen class
 class Game {
-  
+  int wave; 
   int cd=10;
   int enemyCD=0; 
   //int currentEnemies = 0; 
 
   Game() {
+    wave = 0;
+    
   }
 
   void display() {
+    
+    //println(wave);
     player.display(); 
     countBullets();
     countEnemies();
     
-    
-    if(enemies.size()<=0) {
-      spawnEnemies(int(random(5,40))); 
+
+    if (enemies.size()<=0) {
+      spawnEnemies(int(random(5, 40))); 
+      wave++;
     }
-    
-    
   }
+
   
+
   void spawnEnemies(int number) {
-    for(int i = 0; i<number;i++) {
+    for (int i = 0; i<number; i++) {
       enemies.add(new Enemy());
-      
     }
   }
-  
+
   void mousePressed() {
     player.mousePressed();
   }

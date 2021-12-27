@@ -36,7 +36,7 @@ class Bullet {
   }
   
   boolean dead() {
-    return lifetime<=0 || y<=0;
+    return lifetime<=0 || y<=0 ;
   }
   
   
