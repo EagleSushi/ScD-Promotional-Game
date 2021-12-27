@@ -5,27 +5,25 @@ void setup() {
   size(700,1000);
   imageMode(CENTER); 
   rectMode(CENTER); 
-  
+  cursor();
   font = createFont("data/visuals/font/pirulen.otf",64);
   textFont(font);
   
   gameState = 1; 
   initClasses(); 
+  
+  bullets = new ArrayList<Bullet>();
 }
 
 void draw() {
   background(0);
   gameStateChooser(); 
-  renderCharacters(); 
   
 }
 
 
 
-//renders enemies and main character 
-void renderCharacters() {
-  player.display();
-}
+
 
 //initialize classes with one function
 void initClasses() {
@@ -55,4 +53,10 @@ void keyPressed() {
 
 void mousePressed() {
   GSMouse();
+}
+
+void mouseReleased() {
+  if(gameState == 3) {
+    player.mouseReleased();
+  }
 }

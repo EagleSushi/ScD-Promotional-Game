@@ -1,3 +1,9 @@
+/**
+  This is where gameStates mainly are
+  As of writing this, there are only 4 gameStates, start, selection, game, and end.
+**/
+
+
 int gameState; 
 Start startScreen; Selection selectionScreen; Game gameScreen; End endScreen; 
 
@@ -227,10 +233,16 @@ class Selection {
 
 // game screen class
 class Game {
+  
+  
+  
   void display() {
+    player.display(); 
+    countBullets(); 
   }
   
   void mousePressed() {
+    player.mousePressed();
   }
   
   void keyPressed() {
