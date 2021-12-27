@@ -37,10 +37,14 @@ void initClasses() {
   endScreen = new End(); 
 }
 
-//improved dist function
+//improved functions
 
 float dist(PVector first, PVector second) {
   return dist(first.x,first.y,second.x,second.y);
+}
+
+boolean isDist(PVector first, PVector second, float tarDist) {
+  return dist(first,second)<=tarDist;
 }
 
 //key and mousePressed 

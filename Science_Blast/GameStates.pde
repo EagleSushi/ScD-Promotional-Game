@@ -26,16 +26,16 @@ void gameStateChooser() {
 void GSKeys() {
   switch(gameState) {
     case 1: 
-      
+      startScreen.keyPressed(); 
     break; 
     case 2: 
-      
+      selectionScreen.keyPressed(); 
     break;
     case 3: 
-      
+      gameScreen.keyPressed(); 
     break; 
     case 4:
-      
+      endScreen.keyPressed(); 
     break; 
   }
 }
@@ -47,13 +47,13 @@ void GSMouse() {
       startScreen.mousePressed();
     break; 
     case 2: 
-      
+      selectionScreen.mousePressed();
     break;
     case 3: 
-      
+      gameScreen.mousePressed();
     break; 
     case 4:
-      
+      endScreen.mousePressed();
     break; 
   }
   
@@ -133,12 +133,95 @@ class Start {
     }
   }
   
+  void keyPressed() {
+  }
+  
   
 }
 
 // select screen class
 class Selection {
+  PImage[] characters = new PImage[4];
+  PImage[] names = new PImage[4]; 
+  int selection; 
+  
+  Selection() {
+    selection = 0; 
+    
+    characters[0] = loadImage("data/visuals/characters/EagleSushi.png");
+    characters[1] = loadImage("data/visuals/characters/director_dylan.png");
+    characters[2] = loadImage("data/visuals/characters/Feuerfly.png");
+    characters[3] = loadImage("data/visuals/characters/SuperMartian.png");
+    
+    for(int i = 0; i<names.length;i++) {
+      names[i] = loadImage("data/visuals/gui/name_"+i+".png");
+    }
+    
+    for(int i = 0; i<characters.length;i++) {
+      characters[i].resize(128,128);
+    }
+  }
+  
   void display() {
+    image(characters[selection],width/2,height/2);
+    mouseSector();
+    fill(255);
+    renderName();
+    
+    
+  }
+  
+  int mouseSector() {
+    
+    fill(#858586);
+    if(mouseY<=height/2-100) {
+      triangle(width/2,height/2-150,width/2-60,height/2-100,width/2+60,height/2-100);
+      return 1; 
+    } else if(mouseY>=height/2+100) {
+      triangle(width/2,height/2+200,width/2-60,height/2+150,width/2+60,height/2+150);
+      return 3; 
+    } else {
+      return 2;
+    }
+  }
+  
+  void renderName() {
+    fill(255); 
+    rect(width/2,height/2-250,400,100);
+    image(names[selection],width/2,height/2-250);
+  }
+  
+  void mousePressed() {
+    PVector mousePos = new PVector(mouseX,mouseY); 
+    PVector tarPos = new PVector(width/2,height/2);
+    if(mouseButton == LEFT) {
+      
+      if(isDist(mousePos,tarPos,64)) {
+        player.character = selection;
+        gameState=3;
+      }
+      
+      switch(mouseSector()) {
+        case 1: 
+        
+          if(selection == 0 ) {
+            selection = 3;
+          } else {
+            selection-=1; 
+          }
+        break;
+        case 3:
+          if(selection == 3 ) {
+            selection = 0;
+          } else {
+            selection+=1; 
+          }
+        break; 
+      }
+    }
+  }
+  
+  void keyPressed() {
   }
 }
 
@@ -146,10 +229,23 @@ class Selection {
 class Game {
   void display() {
   }
+  
+  void mousePressed() {
+  }
+  
+  void keyPressed() {
+  }
 }
 
 // end screen class
 class End {
+  
   void display() {
+  }
+  
+  void mousePressed() {
+  }
+  
+  void keyPressed() {
   }
 }
