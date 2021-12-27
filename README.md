@@ -9,4 +9,4 @@ Science Blast is a 2d bullet hell game where you have a choice of 4 characters t
 | Characters:      |EagleSushi |director_dylan2|Feuerfly|SuperMartian2145|
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | Fire Rate:      |Slow |Fast|Fast|Slow|
-| Special Ability:   |Chemistry Explosion |Physics Slam |Biology Minion |Electric Shock |
+| Special Ability:   |Chemical Charge |Physical Percussion |Biological Blast |Electric Explosion |
