@@ -1,12 +1,14 @@
 
 ArrayList<Bullet> bullets;
 
+
 class Bullet {
   PVector startPos, targetPos; 
   int x,y;
   PImage[] bulletImg = new PImage[4];
-  int lifetime=100; 
+  int lifetime=70; 
   int speed = 10; 
+  int damage;
   
   Bullet(PVector startPos_) {
     startPos = startPos_; 
@@ -36,6 +38,7 @@ class Bullet {
   boolean dead() {
     return lifetime<=0 || y<=0;
   }
+  
   
   
   

@@ -7,6 +7,7 @@ class Player {
   
   int cooldown=10;
   int currentCD=0;
+  int damage;
   
   Player() {
     
