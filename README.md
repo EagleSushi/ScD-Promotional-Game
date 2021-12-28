@@ -18,5 +18,5 @@ Science Blast is a 2d bullet hell game where you have a choice of 4 characters t
 I'm glad you asked! Since this game is currently being worked on, it has not been moved to an application format. Instead you have to install the processing IDE in order to play. Here are the steps you need to take in order to play: 
 
 1. Install [processing](https://processing.org/) 
-2. Download the Science Blast repository: ![Install .zip](README_resources/step2.png)
+2. Download the Science Blast repository: ![Install .zip](step2.png)
 3.
