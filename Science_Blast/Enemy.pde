@@ -31,7 +31,7 @@ class Enemy {
     pos = new PVector(randX, 0);
 
     tarX = int(constrain(random(pos.x-10, pos.x+10), 48, width-48));
-    tarY = int(random(16, height/2));
+    tarY = int(random(128, height/2));
 
     enemyBullets = new ArrayList<EnemyBullet>();
   }
@@ -77,7 +77,7 @@ class Enemy {
       EnemyBullet bullet = enemyBullets.get(i);
       PVector bulletPos = new PVector(bullet.x, bullet.y);
 
-      gems.add(new Gem(bulletPos, player.position, 10));
+      gems.add(new Gem(bulletPos, player.position, 5));
       enemyBullets.remove(i);
     }
   }
@@ -118,10 +118,10 @@ class Enemy {
   void determinePoints() {
     switch(costume) {
     case 0:
-      pointValue = 100;
+      pointValue = 10;
       break; 
     case 1: 
-      pointValue = 500;
+      pointValue = 50;
       break;
     }
   }
@@ -163,7 +163,7 @@ class Enemy {
   class EnemyBullet {
     float x, y;
     PImage sprite; 
-    float speed=2; 
+    float speed=3; 
 
     EnemyBullet() {
       sprite = loadImage("data/visuals/bullets/enemy_0.png");

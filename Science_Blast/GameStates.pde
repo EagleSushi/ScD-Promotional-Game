@@ -255,6 +255,7 @@ class Selection {
 // game screen class
 class Game {
   Background background; 
+  
   int wave; 
   int cd=10;
   int enemyCD=0; 
@@ -270,13 +271,13 @@ class Game {
   }
 
   void display() {
-    background.display();
+    
     //println(player.charge);
     //println(wave);
     player.display(); 
     countBullets();
     countEnemies();
-
+    background.display();
     try {
       countGems();
     } catch (NullPointerException e) {
@@ -284,7 +285,7 @@ class Game {
     }
 
     if (enemies.size()<=0) {
-      spawnEnemies(int(random(5, 40))); 
+      spawnEnemies(int(random(10, 60))); 
       wave++;
     }
     
