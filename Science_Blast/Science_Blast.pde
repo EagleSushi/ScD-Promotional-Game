@@ -14,6 +14,7 @@ void setup() {
 
   bullets = new ArrayList<Bullet>();
   enemies = new ArrayList<Enemy>();
+  gems = new ArrayList<Gem>();
 }
 
 void draw() {
@@ -47,10 +48,12 @@ boolean isDist(PVector first, PVector second, float tarDist) {
 
 float perlin(float minX, float maxX, int time) {
   return map(noise(time),0,1,minX,maxX);
-  
 }
 
+
 //key and mousePressed 
+
+boolean right;
 
 void keyPressed() {
   GSKeys();
@@ -58,10 +61,18 @@ void keyPressed() {
 
 void mousePressed() {
   GSMouse();
+  
+  if(mouseButton == RIGHT) {
+    right = true; 
+  }
 }
 
 void mouseReleased() {
   if (gameState == 3) {
     player.mouseReleased();
+  }
+  
+  if(mouseButton == RIGHT) {
+    right = false;
   }
 }
