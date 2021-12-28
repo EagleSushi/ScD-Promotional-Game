@@ -20,4 +20,5 @@ I'm glad you asked! Since this game is currently being worked on, it has not bee
 
 1. Install [processing](https://processing.org/) 
 2. Download the Science Blast repository: ![step2](https://user-images.githubusercontent.com/61121771/147516511-9c2a8380-10a8-4e90-95fc-f3ec3602c8b7.PNG)
-3.
+3. Unzip the folder and locate the folder: 
+
