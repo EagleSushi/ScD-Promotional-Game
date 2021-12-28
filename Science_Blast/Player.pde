@@ -32,7 +32,7 @@ class Player {
 
   void display() {
     noCursor();
-    println(player.charge);
+    //println(player.charge);
     pushMatrix(); 
     translate(position.x, position.y);
     image(avatar[character], 0, 0);

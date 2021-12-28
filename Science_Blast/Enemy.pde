@@ -72,7 +72,7 @@ class Enemy {
   }
 
   void clearBullets() {
-    println("active");
+    //println("active");
     for (int i = 0; i<enemyBullets.size(); i++) {
       EnemyBullet bullet = enemyBullets.get(i);
       PVector bulletPos = new PVector(bullet.x, bullet.y);
@@ -107,10 +107,10 @@ class Enemy {
   }
 
   void waveLvl() {
-    if (gameScreen.wave<1) {
+    if (gameScreen.wave<10) {
       maxCostume = 0;
     } 
-    if (gameScreen.wave<=20 && gameScreen.wave>=1) {
+    if (gameScreen.wave<=20 && gameScreen.wave>=10) {
       maxCostume = 1;
     }
   }

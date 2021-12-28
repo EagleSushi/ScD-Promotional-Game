@@ -287,6 +287,11 @@ class Game {
       spawnEnemies(int(random(5, 40))); 
       wave++;
     }
+    
+    if(player.health<=0) {
+      gameState = 4;
+      cursor();
+    }
   }
 
 
@@ -309,11 +314,24 @@ class Game {
 
 // end screen class
 class End {
-
+  PImage gameOver;
+  
+  End() {
+    gameOver = loadImage("data/visuals/gui/gameOver.png");
+  }
+  
   void display() {
+    image(gameOver,width/2,height/2-300);
+    
+    text("Score:",width/2,height/2);
+    text(gameScreen.score,width/2,height/2);
   }
 
   void mousePressed() {
+    if(mouseButton == LEFT) {
+      setup();
+      gameState = 1;
+    }
   }
 
   void keyPressed() {
