@@ -277,6 +277,7 @@ class Game {
     player.display(); 
     countBullets();
     countEnemies();
+    countHealth();
     background.display();
     try {
       countGems();

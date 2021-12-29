@@ -61,10 +61,16 @@ class Enemy {
       if (pos.y<tarY) {
         pos.y++;
       }
-      
+
       damage();
     } else {
-
+      int chance = int(random(1,10));
+      if(chance == 5 && costume == 1) {
+        Health h = new Health(pos,player.position);
+        healthArray.add(h);
+        
+      }
+      
       gems.add(new Gem(pos, player.position, pointValue));
       clearBullets();
       enemies.remove(enemyCount);
@@ -110,8 +116,11 @@ class Enemy {
     if (gameScreen.wave<10) {
       maxCostume = 0;
     } 
-    if (gameScreen.wave<=20 && gameScreen.wave>=10) {
+    if (gameScreen.wave<20 && gameScreen.wave>=10) {
       maxCostume = 1;
+    } 
+    if(gameScreen.wave<30 && gameScreen.wave >=20) {
+      maxCostume = 2; 
     }
   }
 
@@ -123,6 +132,9 @@ class Enemy {
     case 1: 
       pointValue = 50;
       break;
+    case 2: 
+    pointValue = 100; 
+    break; 
     }
   }
 
@@ -133,6 +145,9 @@ class Enemy {
       break; 
     case 1: 
       health = 250;
+      break;
+    case 2:
+      health = 500;
       break;
     }
   }

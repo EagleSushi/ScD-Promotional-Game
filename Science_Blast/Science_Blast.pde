@@ -15,6 +15,7 @@ void setup() {
   bullets = new ArrayList<Bullet>();
   enemies = new ArrayList<Enemy>();
   gems = new ArrayList<Gem>();
+  healthArray = new ArrayList<Health>();
 }
 
 void draw() {
